@@ -10,38 +10,23 @@
 <body>
 
   <div id="app">
-      <form @submit.prevent = "submit">
-<!--          <input type="text" :value="text" @keyup="updateText"><br>-->
-          <input type="text" v-model="text"><br>
-          {{text}}<br>
-          <button type="submit">Submit</button>
-
-      </form>
+      {{reversedMessage}}
   </div>
 
   <script>
       const app = Vue.createApp({
           data() {
               return {
-                  year: 2023,
-                  text: 'txt'
+                  message: "안녕하세요"
               }
           },
           methods: {
-              plus() {
-                  this.year++;
-              },
 
-              minus() {
-                  this.year--;
+          },
+          computed: {
+              reversedMessage() {
+                  return this.message.split('').reverse().join('');
               },
-              submit() {
-                  alert('submit alert!!!');
-                  console.log("로그 찍어보기");
-              },
-              // updateText(event) {
-              //     this.text = event.target.value;
-              // },
           }
       })
 
