@@ -6,7 +6,7 @@
             color: red;
         }
 
-        .bold {
+        .font-bold {
             font-weight: bold;
         }
     </style>
@@ -19,7 +19,7 @@
 <body>
 
   <div id="app">
-      <div :class="{red: isRed, bold: isBold}">
+      <div :class="{red: isRed, 'font-bold': isBold}">
           Hello
       </div>
       <button @click="update">click</button>
