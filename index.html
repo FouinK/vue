@@ -19,33 +19,46 @@
 <body>
 
   <div id="app">
-      <div>{{people[0].name}} {{people[0].age}} {{ people[0].gender }}</div>
-      <div>{{people[1].name}} {{people[1].age}} {{ people[1].gender }}</div>
-      <div>{{people[2].name}} {{people[2].age}} {{ people[2].gender }}</div>
-      <hr>
-      <div v-for="(person, index) in people" :key="person.name + '-' + person.age">
-          <div>{{person.name}} {{person.age}} {{ person.gender }} {{index}}</div>
-      </div>
+      {{name}}
+      <button @click="changeName">Change Name</button>
   </div>
 
+  <div id="app2">
+      {{name}}
+      <button @click="changeName">Change Name</button>
+  </div>
   <script>
       const app = Vue.createApp({
           data() {
               return {
-                  people: [
-                      {name: 'a', age: 20, gender: '남'},
-                      {name: 'b', age: 21, gender: '남'},
-                      {name: 'c', age: 22, gender: '남'}
-                  ]
+                  name: "성현",
               }
           },
           methods: {
+              changeName() {
+                  this.name = "이름이 변경되었습니다";
+              },
+          },
+
+      })
+
+      const app2 = Vue.createApp({
+          data() {
+              return {
+                  name: "윤성현",
+              }
+          },
+          methods: {
+              changeName() {
+                  this.name = "이름이 변경되었습니다";
+              },
 
           },
 
       })
 
       app.mount('#app');
+      app2.mount('#app2');
   </script>
 
 </body>
