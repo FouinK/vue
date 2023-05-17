@@ -19,35 +19,25 @@
 <body>
 
   <div id="app">
-<!--      <template v-if="number === 1">-->
-<!--          <div>네 개가</div>-->
-<!--          <div>동시에</div>-->
-<!--          <div>렌더링 되는 것을</div>-->
-<!--          <div>확인 할 수 있습니다.</div>-->
-<!--      </template>-->
-<!--      <div v-else-if="number === 2">hi</div>-->
-<!--      <div v-else>No</div>-->
-      <div v-show="show">Yes</div>
+      <div>{{people[0].name}} {{people[0].age}} {{ people[0].gender }}</div>
+      <div>{{people[1].name}} {{people[1].age}} {{ people[1].gender }}</div>
+      <div>{{people[2].name}} {{people[2].age}} {{ people[2].gender }}</div>
 
-      <br>
-      <button @click="toggle">Toggle</button>
   </div>
 
   <script>
       const app = Vue.createApp({
           data() {
               return {
-                  number: 1,
-                  show: false
+                  people: [
+                      {name: 'a', age: 20, gender: '남'},
+                      {name: 'b', age: 21, gender: '남'},
+                      {name: 'c', age: 22, gender: '남'}
+                  ]
               }
           },
           methods: {
-              Increase() {
-                  this.number++;
-              },
-              toggle() {
-                  this.show = !this.show;
-              },
+
           },
 
       })
