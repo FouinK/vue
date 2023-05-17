@@ -10,6 +10,7 @@
 <body>
 
   <div id="app">
+      <button @click="changeMessage()">클릭 버튼</button> <br>
       {{reversedMessage}}
   </div>
 
@@ -21,7 +22,9 @@
               }
           },
           methods: {
-
+              changeMessage() {
+                  this.message = "윤성윤성현";
+              },
           },
           computed: {
               reversedMessage() {
