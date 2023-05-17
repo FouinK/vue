@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        .red{
-            color: red;
-        }
-
-        .font-bold {
-            font-weight: bold;
-        }
-    </style>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,45 +11,52 @@
 
   <div id="app">
       {{name}}
-      <button @click="changeName">Change Name</button>
+      <button @click="changeNameOhterInstance">Change Name</button>
   </div>
 
   <div id="app2">
       {{name}}
-      <button @click="changeName">Change Name</button>
+      <button @click="changeNameOhterInstance">Change Name</button>
   </div>
+
   <script>
-      const app = Vue.createApp({
+      let app = Vue.createApp({
           data() {
               return {
-                  name: "성현",
+                  name: '성현',
               }
           },
           methods: {
-              changeName() {
-                  this.name = "이름이 변경되었습니다";
+              changeNameOhterInstance() {
+                  app2.changeName('윤성현의 이름을 성현의 인스턴스에서 변경했습니다');
+              },
+              changeName(newName) {
+                  this.name = newName;
               },
           },
 
       })
 
-      const app2 = Vue.createApp({
+      let app2 = Vue.createApp({
           data() {
               return {
-                  name: "윤성현",
+                  name: '윤성현',
               }
           },
           methods: {
-              changeName() {
-                  this.name = "이름이 변경되었습니다";
+              changeNameOhterInstance() {
+                  app.changeName('성현의 이름을 윤성현의 인스턴스에서 변경했습니다');
+              },
+              changeName(newName) {
+                  this.name = newName;
               },
 
           },
 
       })
 
-      app.mount('#app');
-      app2.mount('#app2');
+      app = app.mount('#app');
+      app2 = app2.mount('#app2');
   </script>
 
 </body>
