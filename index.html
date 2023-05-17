@@ -22,7 +22,10 @@
       <div>{{people[0].name}} {{people[0].age}} {{ people[0].gender }}</div>
       <div>{{people[1].name}} {{people[1].age}} {{ people[1].gender }}</div>
       <div>{{people[2].name}} {{people[2].age}} {{ people[2].gender }}</div>
-
+      <hr>
+      <div v-for="person in people">
+          <div>{{person.name}} {{person.age}} {{ person.gender }}</div>
+      </div>
   </div>
 
   <script>
