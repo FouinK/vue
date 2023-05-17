@@ -19,28 +19,34 @@
 <body>
 
   <div id="app">
-      <template v-if="number === 1">
-          <div>네 개가</div>
-          <div>동시에</div>
-          <div>렌더링 되는 것을</div>
-          <div>확인 할 수 있습니다.</div>
-      </template>
-      <div v-else-if="number === 2">hi</div>
-      <div v-else>No</div>
+<!--      <template v-if="number === 1">-->
+<!--          <div>네 개가</div>-->
+<!--          <div>동시에</div>-->
+<!--          <div>렌더링 되는 것을</div>-->
+<!--          <div>확인 할 수 있습니다.</div>-->
+<!--      </template>-->
+<!--      <div v-else-if="number === 2">hi</div>-->
+<!--      <div v-else>No</div>-->
+      <div v-show="show">Yes</div>
+
       <br>
-      <button @click="Increase">Increase</button> {{number}}
+      <button @click="toggle">Toggle</button>
   </div>
 
   <script>
       const app = Vue.createApp({
           data() {
               return {
-                  number: 1
+                  number: 1,
+                  show: false
               }
           },
           methods: {
               Increase() {
                   this.number++;
+              },
+              toggle() {
+                  this.show = !this.show;
               },
           },
 
