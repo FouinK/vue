@@ -19,7 +19,8 @@
 <body>
 
   <div id="app">
-      <div v-if="show">Yes</div>
+      <div v-if="show">Yes</div><br>
+      <button @click="toggle">toggle</button>
   </div>
 
   <script>
@@ -30,7 +31,9 @@
               }
           },
           methods: {
-
+              toggle() {
+                  this.show = !this.show;
+              },
           },
 
       })
