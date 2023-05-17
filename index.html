@@ -12,16 +12,17 @@
   <div id="app">
 
      {{year}}    <br>
-    <button v-on:click="plus">더하기</button>
-    <button v-on:click="minus">빼기</button>
+    <button @click="plus">더하기</button>
+    <button @click="minus">빼기</button>
 
   </div>
 
   <script>
-    new Vue({
-      el: "#app",
-      data: {
-        year: 2023
+    const app = Vue.createApp({
+      data () {
+        return {
+            year: 2023
+        }
       },
       methods: {
         plus() {
@@ -33,6 +34,8 @@
         },
       }
     })
+
+    app.mount('#app');
   </script>
 
 </body>
