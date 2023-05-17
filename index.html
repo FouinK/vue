@@ -19,25 +19,18 @@
 <body>
 
   <div id="app">
-      <div :style="{color: red, fontSize: size}">
-          Hello
-      </div>
-      <button @click="update">click</button>
+      <div v-if="show">Yes</div>
   </div>
 
   <script>
       const app = Vue.createApp({
           data() {
               return {
-                  red: 'red',
-                  size: '30px'
+                  show: false
               }
           },
           methods: {
-              update() {
-                  this.isRed = !this.isRed;
-                  this.isBold = !this.isBold;
-              },
+
           },
 
       })
