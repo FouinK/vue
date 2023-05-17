@@ -10,32 +10,41 @@
 <body>
 
   <div id="app">
+      <form @submit.prevent = "submit">
+          <input type="text" :value="text" @keyup="updateText"><br>
+          {{text}}<br>
+          <button type="submit">Submit</button>
 
-     {{year}}    <br>
-    <button @click="plus">더하기</button>
-    <button @click="minus">빼기</button>
-
+      </form>
   </div>
 
   <script>
-    const app = Vue.createApp({
-      data () {
-        return {
-            year: 2023
-        }
-      },
-      methods: {
-        plus() {
-          this.year++;
-        },
+      const app = Vue.createApp({
+          data() {
+              return {
+                  year: 2023,
+                  text: 'txt'
+              }
+          },
+          methods: {
+              plus() {
+                  this.year++;
+              },
 
-        minus() {
-          this.year--;
-        },
-      }
-    })
+              minus() {
+                  this.year--;
+              },
+              submit() {
+                  alert('submit alert!!!');
+                  console.log("로그 찍어보기");
+              },
+              updateText(event) {
+                  console.log(event);
+              },
+          }
+      })
 
-    app.mount('#app');
+      app.mount('#app');
   </script>
 
 </body>
